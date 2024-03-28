@@ -1,0 +1,54 @@
+/*
+ *  @author Haoze Wu <haoze@jhu.edu>
+ *
+ *  The Legolas Project
+ *
+ *  Copyright (c) 2024, University of Michigan, EECS, OrderLab.
+ *      All rights reserved.
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+package edu.umich.order.legolas.common.event;
+
+import edu.umich.order.legolas.common.record.RecordWriter;
+import java.io.IOException;
+
+/**
+ *
+ */
+public class ThreadInjectionEvent extends ThreadInjectionRequest {
+    public final boolean grantDelay;
+    public final int grantEid;
+    public final int injectionId;
+
+    public ThreadInjectionEvent(ThreadInjectionRequest request,
+            boolean grantDelay, int grantEid, int injectionId) {
+        super(request);
+        this.grantDelay = grantDelay;
+        this.grantEid = grantEid;
+        this.injectionId = injectionId;
+    }
+
+    @Override
+    public void dump(final RecordWriter writer) throws IOException {
+        super.dump(writer);
+        writer.append(grantDelay ? 1 : 0);
+        writer.append(grantEid);
+        writer.append(injectionId);
+    }
+
+    @Override
+    public int getType() {
+        return 5;
+    }
+}

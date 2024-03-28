@@ -1,0 +1,34 @@
+{
+  "bugs": [
+    {
+      "name":"ZOOKEEPER-4074",
+      "stacktraces": [
+        [
+          "org.apache.zookeeper.server.quorum.FollowerRequestProcessor,run,",
+          "org.apache.zookeeper.server.quorum.Learner,request,",
+          "org.apache.zookeeper.server.quorum.Learner,writePacket,165"
+        ],
+        [
+          "org.apache.zookeeper.server.SyncRequestProcessor,run,",
+          "org.apache.zookeeper.server.SyncRequestProcessor,flush,",
+          "org.apache.zookeeper.server.quorum.SendAckRequestProcessor,processRequest,",
+          "org.apache.zookeeper.server.quorum.Learner,writePacket,165"
+        ],
+        [
+          "org.apache.zookeeper.server.quorum.QuorumPeer,run,",
+          "org.apache.zookeeper.server.quorum.Follower,followLeader,",
+          "org.apache.zookeeper.server.quorum.Follower,processPacket,",
+          "org.apache.zookeeper.server.quorum.Learner,ping,",
+          "org.apache.zookeeper.server.quorum.Learner,writePacket,165"
+        ]
+      ],
+      "workload_result_types": [
+        {
+          "create": "COMPLETE",
+          "read": "!COMPLETE",
+          "write": "!COMPLETE"
+        }
+      ]
+    }
+  ]
+}

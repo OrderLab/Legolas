@@ -1,0 +1,96 @@
+{
+  "bugs": [
+    {
+      "name":"ZOOKEEPER-2201",
+      "stacktraces": [
+        [
+          "org.apache.zookeeper.server.SyncRequestProcessor$1,run,153",
+          "org.apache.zookeeper.server.ZooKeeperServer,takeSnapshot,292",
+          "org.apache.zookeeper.server.persistence.FileTxnSnapLog,save,242",
+          "org.apache.zookeeper.server.persistence.FileSnap,serialize,230",
+          "org.apache.zookeeper.server.persistence.FileSnap,serialize,213",
+          "org.apache.zookeeper.server.util.SerializeUtils,serializeSnapshot,138",
+          "org.apache.zookeeper.server.DataTree,serialize,1179",
+          "org.apache.zookeeper.server.DataTree,serializeNode,1130",
+          "org.apache.zookeeper.server.DataTree,serializeNode,1130",
+          "org.apache.zookeeper.server.DataTree,serializeNode,1113"
+        ],
+        [
+          "org.apache.zookeeper.server.SyncRequestProcessor$1,run,153",
+          "org.apache.zookeeper.server.ZooKeeperServer,takeSnapshot,292",
+          "org.apache.zookeeper.server.persistence.FileTxnSnapLog,save,242",
+          "org.apache.zookeeper.server.persistence.FileSnap,serialize,230",
+          "org.apache.zookeeper.server.persistence.FileSnap,serialize,213",
+          "org.apache.zookeeper.server.util.SerializeUtils,serializeSnapshot,138",
+          "org.apache.zookeeper.server.DataTree,serialize,1179",
+          "org.apache.zookeeper.server.DataTree,serializeNode,1130",
+          "org.apache.zookeeper.server.DataTree,serializeNode,1130",
+          "org.apache.zookeeper.server.DataTree,serializeNode,1114"
+        ],
+        [
+          "org.apache.zookeeper.server.SyncRequestProcessor$1,run,153",
+          "org.apache.zookeeper.server.ZooKeeperServer,takeSnapshot,292",
+          "org.apache.zookeeper.server.persistence.FileTxnSnapLog,save,242",
+          "org.apache.zookeeper.server.persistence.FileSnap,serialize,230",
+          "org.apache.zookeeper.server.persistence.FileSnap,serialize,213",
+          "org.apache.zookeeper.server.util.SerializeUtils,serializeSnapshot,138",
+          "org.apache.zookeeper.server.DataTree,serialize,1179",
+          "org.apache.zookeeper.server.DataTree,serializeNode,1130",
+          "org.apache.zookeeper.server.DataTree,serializeNode,1130",
+          "org.apache.zookeeper.server.DataTree,serializeNode,1115"
+        ]
+      ],
+      "workload_result_types": [
+        {
+          "create": "COMPLETE",
+          "read": "!COMPLETE",
+          "write": "!COMPLETE"
+        }
+      ],
+      "injection_server_role": "LEADING"
+    },
+    {
+      "name":"ZOOKEEPER-2029",
+      "stacktraces": [
+        [
+          "org.apache.zookeeper.server.quorum.Leader$LearnerCnxAcceptor,run,313"
+        ]
+      ],
+      "workload_result_types": [
+        {
+          "create": "!COMPLETE"
+        }
+      ],
+      "injection_server_role": "LEADING"
+    },
+    {
+      "name":"ZOOKEEPER-2325",
+      "stacktraces": [
+        [
+          "org.apache.zookeeper.server.quorum.QuorumPeerMain,main,78",
+          "org.apache.zookeeper.server.quorum.QuorumPeerMain,initializeAndRun,111",
+          "org.apache.zookeeper.server.quorum.QuorumPeerMain,runFromConfig,153",
+          "org.apache.zookeeper.server.quorum.QuorumPeer,start,440",
+          "org.apache.zookeeper.server.quorum.QuorumPeer,loadDataBase,450",
+          "org.apache.zookeeper.server.ZKDatabase,loadDataBase,223",
+          "org.apache.zookeeper.server.persistence.FileTxnSnapLog,restore,130",
+          "org.apache.zookeeper.server.persistence.FileSnap,deserialize,72",
+          "org.apache.zookeeper.server.persistence.FileSnap,findNValidSnapshots,163",
+          "org.apache.zookeeper.server.persistence.Util,isValidSnapshot,179"
+        ]
+      ]
+    },
+    {
+      "name":"ZOOKEEPER-2247",
+      "stacktraces": [
+        [
+          "org.apache.zookeeper.server.SyncRequestProcessor,run,131",
+          "org.apache.zookeeper.server.SyncRequestProcessor,flush,196",
+          "org.apache.zookeeper.server.ZKDatabase,commit,491",
+          "org.apache.zookeeper.server.persistence.FileTxnSnapLog,commit,322",
+          "org.apache.zookeeper.server.persistence.FileTxnLog,commit,329"
+        ]
+      ]
+    }
+  ]
+}

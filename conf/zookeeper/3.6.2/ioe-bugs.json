@@ -1,0 +1,88 @@
+{
+  "bugs": [
+    {
+      "name":"ZOOKEEPER-4203",
+      "stacktraces": [
+        [
+          "java.lang.Thread,run,748",
+          "java.util.concurrent.ThreadPoolExecutor$Worker,run,624",
+          "java.util.concurrent.ThreadPoolExecutor,runWorker,1149",
+          "java.util.concurrent.FutureTask,run,266",
+          "java.util.concurrent.Executors$RunnableAdapter,call,511",
+          "org.apache.zookeeper.server.quorum.Leader$LearnerCnxAcceptor$LearnerCnxAcceptorHandler,run,493",
+          "org.apache.zookeeper.server.quorum.Leader$LearnerCnxAcceptor$LearnerCnxAcceptorHandler,acceptConnections,510"
+        ]
+      ],
+      "workload_result_types": [
+        {
+          "create": "REMOTE_SINGLE_ZERO",
+          "read": "*",
+          "write": "*"
+        }
+      ],
+      "injection_server_role": "LEADING"
+    },
+    {
+      "name":"ZOOKEEPER-4419",
+      "stacktraces": [
+        [
+          "java.lang.Thread,run,748",
+          "java.util.concurrent.ThreadPoolExecutor$Worker,run,624",
+          "java.util.concurrent.ThreadPoolExecutor,runWorker,1149",
+          "java.util.concurrent.FutureTask,run,266",
+          "java.util.concurrent.Executors$RunnableAdapter,call,511",
+          "org.apache.zookeeper.server.quorum.Learner$LeaderConnector,run,326",
+          "org.apache.zookeeper.server.quorum.Learner$LeaderConnector,connectToLeader,345",
+          "org.apache.zookeeper.server.quorum.Learner,createSocket,"
+        ]
+      ],
+      "workload_result_types": [
+        {
+          "create": "REMOTE_SINGLE_ZERO",
+          "read": "*",
+          "write": "*"
+        }
+      ]
+    },
+    {
+      "name":"ZOOKEEPER-4424",
+      "stacktraces": [
+        [
+          "java.lang.Thread,run,748",
+          "java.util.concurrent.ThreadPoolExecutor$Worker,run,624",
+          "java.util.concurrent.ThreadPoolExecutor,runWorker,1149",
+          "java.util.concurrent.FutureTask,run,266",
+          "java.util.concurrent.Executors$RunnableAdapter,call,511",
+          "org.apache.zookeeper.server.quorum.Leader$LearnerCnxAcceptor$LearnerCnxAcceptorHandler,run,493",
+          "org.apache.zookeeper.server.quorum.Leader$LearnerCnxAcceptor$LearnerCnxAcceptorHandler,acceptConnections,514"
+        ],
+        [
+          "java.lang.Thread,run,748",
+          "java.util.concurrent.ThreadPoolExecutor$Worker,run,624",
+          "java.util.concurrent.ThreadPoolExecutor,runWorker,1149",
+          "java.util.concurrent.FutureTask,run,266",
+          "java.util.concurrent.Executors$RunnableAdapter,call,511",
+          "org.apache.zookeeper.server.quorum.Leader$LearnerCnxAcceptor$LearnerCnxAcceptorHandler,run,493",
+          "org.apache.zookeeper.server.quorum.Leader$LearnerCnxAcceptor$LearnerCnxAcceptorHandler,acceptConnections,515"
+        ],
+        [
+          "java.lang.Thread,run,748",
+          "java.util.concurrent.ThreadPoolExecutor$Worker,run,624",
+          "java.util.concurrent.ThreadPoolExecutor,runWorker,1149",
+          "java.util.concurrent.FutureTask,run,266",
+          "java.util.concurrent.Executors$RunnableAdapter,call,511",
+          "org.apache.zookeeper.server.quorum.Leader$LearnerCnxAcceptor$LearnerCnxAcceptorHandler,run,493",
+          "org.apache.zookeeper.server.quorum.Leader$LearnerCnxAcceptor$LearnerCnxAcceptorHandler,acceptConnections,517"
+        ]
+      ],
+      "workload_result_types": [
+        {
+          "create": "REMOTE_SINGLE_ZERO",
+          "read": "*",
+          "write": "*"
+        }
+      ],
+      "injection_server_role": "LEADING"
+    }
+  ]
+}

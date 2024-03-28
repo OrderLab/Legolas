@@ -1,0 +1,75 @@
+.*.swp
+.DS_Store
+*.class
+*.pyc
+
+classes.txt
+
+# Maven
+/*/target/
+/target
+
+# User-specific stuff:
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
+
+# Sensitive or high-churn files:
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.xml
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+
+.idea/.name
+.idea/misc.xml
+.idea/vcs.xml
+
+.idea/artifacts
+.idea/compiler.xml
+.idea/jarRepositories.xml
+.idea/modules.xml
+.idea/*.iml
+.idea/modules
+*.iml
+
+# Gradle:
+.idea/**/gradle.xml
+.idea/**/libraries
+
+/*/.classpath
+/*/.project
+/*/.settings/
+
+# IntelliJ
+out/
+
+!/.idea/fileTemplates/
+!/.idea/codeStyleSettings.xml
+
+# output from Soot
+sootOutput/
+sootTestOutput/
+
+.classpath
+.project
+.settings
+
+/data/
+
+# logs
+logs/
+zk.log
+zk.snapshot
+
+# testing result dir
+/workspace*/
+
+target/
+
+dependency-reduced-pom.xml
+
+zookeeper_audit.log
+/outputReport*/

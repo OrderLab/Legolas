@@ -1,0 +1,4 @@
+org/apache/zookeeper/server/auth/AuthenticationProvider.class
+org/apache/zookeeper/server/watch/IWatchManager.class
+org/apache/zookeeper/metrics/Counter.class
+org/apache/zookeeper/audit/AuditLogger.class
