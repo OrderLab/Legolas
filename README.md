@@ -16,7 +16,7 @@ workload driver, and result reporter.
 ## Requirements
 
 Legolas is mainly written in Java and tested under Ubuntu 18.04 to 22.04 with
-JDK 8. We use [Apache Maven](https://maven.apache.org/) to manage the 
+JDK 8 to JDK 11. We use [Apache Maven](https://maven.apache.org/) to manage the 
 project modules and compilation.
 
 ## Download
@@ -159,10 +159,6 @@ Exception in thread "main" java.lang.NoClassDefFoundError: org/apache/zookeeper/
   at org.apache.zookeeper.server.quorum.QuorumPeerMain.main(QuorumPeerMain.java:90)
 ...
 ```
-
-The `NoClassDefFoundError` is the issue, which is caused by Soot's (the
-compiler framework Legolas uses) support for newer versions of JDK (e.g., JDK
-11).  To fix the issue, use older versions of JDK (JDK 8 is tested to work).
 
 ## Publication
 
