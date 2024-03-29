@@ -35,7 +35,8 @@ import soot.SootMethod;
 import soot.Trap;
 import soot.Unit;
 import soot.Value;
-import soot.javaToJimple.LocalGenerator;
+import soot.LocalGenerator;
+import soot.javaToJimple.DefaultLocalGenerator;
 import soot.jimple.IntConstant;
 import soot.jimple.InvokeStmt;
 import soot.jimple.Jimple;
@@ -92,7 +93,7 @@ public final class SerializerInstrumentor {
     private void instrument(final SootMethod method) {
         final Body body = method.retrieveActiveBody();
         final PatchingChain<Unit> units = body.getUnits();
-        final LocalGenerator lg = new LocalGenerator(body);
+        final LocalGenerator lg = new DefaultLocalGenerator(body);
         Unit first = units.getFirst();
         while (AbstractStateInstrumentor.isLeadingStmt(first)) {
             first = units.getSuccOf(first);

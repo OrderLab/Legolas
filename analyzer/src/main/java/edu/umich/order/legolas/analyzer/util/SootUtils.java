@@ -31,6 +31,7 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import soot.Body;
+import soot.G;
 import soot.Local;
 import soot.PackManager;
 import soot.PatchingChain;
@@ -274,7 +275,7 @@ public class SootUtils {
 
         public static MethodLocalDefUses build(SootMethod method, boolean buildUse) {
             UnitGraph graph = new ExceptionalUnitGraph(method.getActiveBody());
-            LocalDefs ld = LocalDefs.Factory.newLocalDefs(graph);
+            LocalDefs ld = G.v().soot_toolkits_scalar_LocalDefsFactory().newLocalDefs(graph);
             LocalUses lu = null;
             if (buildUse)
                 lu = LocalUses.Factory.newLocalUses(graph, ld);

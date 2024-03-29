@@ -37,7 +37,8 @@ import soot.SootMethod;
 import soot.Trap;
 import soot.Unit;
 import soot.Value;
-import soot.javaToJimple.LocalGenerator;
+import soot.LocalGenerator;
+import soot.javaToJimple.DefaultLocalGenerator;
 import soot.jimple.IdentityStmt;
 import soot.jimple.IntConstant;
 import soot.jimple.InvokeStmt;
@@ -68,7 +69,7 @@ public class AbstractStateInstrumentor {
         this.targetMethod = targetMethod;
         body = targetMethod.retrieveActiveBody();
         units = body.getUnits();
-        lg = new LocalGenerator(body);
+        lg = new DefaultLocalGenerator(body);
         targetClassName = targetMethod.getDeclaringClass().getName();
         this.register = register;
     }

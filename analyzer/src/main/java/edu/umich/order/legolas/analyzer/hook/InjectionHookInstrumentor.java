@@ -43,7 +43,8 @@ import soot.SootMethod;
 import soot.Unit;
 import soot.Value;
 import soot.ValueBox;
-import soot.javaToJimple.LocalGenerator;
+import soot.LocalGenerator;
+import soot.javaToJimple.DefaultLocalGenerator;
 import soot.jimple.IntConstant;
 import soot.jimple.InvokeExpr;
 import soot.jimple.InvokeStmt;
@@ -85,7 +86,7 @@ public class InjectionHookInstrumentor {
         this.exceptionExtractor = exceptionExtractor;
         body = targetMethod.retrieveActiveBody();
         units = body.getUnits();
-        lg = new LocalGenerator(body);
+        lg = new DefaultLocalGenerator(body);
         this.specs = specs;
         // use default injection rule is the specs is null or empty
         defaultRule = specs == null || specs.isEmpty();
