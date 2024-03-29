@@ -108,20 +108,33 @@ function copy_soot_out_class_files()
   if [ ! -z "$1" -a ! -z "$2" ]; then
     local soot_output_dir=$1
     local dest_dir=$2
-    local full_classes=$(find $dest_dir -name "*.class")
+    local full_classes=$(find $soot_output_dir -name "*.class")
     local fc=""
     local relative_class=""
-    local soot_class=""
+    local dest_class=""
     local log_file=$soot_output_dir/copied_classes.txt
-    > $log_file
+    local do_copy=0
     for fc in $full_classes;
     do
-      relative_class=${fc#$dest_dir}
-      soot_class=$soot_output_dir/$relative_class
-      # Only copy the class file if the same path exists in soot output dir
-      if [ -f $soot_class ]; then
-        cp $soot_class $fc
-        echo $fc >> $log_file
+      relative_class=${fc#$soot_output_dir}
+      dest_class=$dest_dir/$relative_class
+      do_copy=0
+      if [ -f $dest_class ]; then
+        do_copy=1
+      else
+        dest_class_dir=$(dirname $dest_class)
+        # As long as the class file directory exists in the target system, we copy 
+        # the class from soot output dir. This is because Soot may generate aux
+        # classes for a complex class, which will not exist in the target directory.
+        # For example, Soot generates `DefaultMetricsProvider$DefaultMetricsContext$lambda_dump_*.class`
+        # for ZooKeeper, while the target directory only has a single `DefaultMetricsProvider$DefaultMetricsContext.class`.
+        if [ -d $dest_class_dir ]; then
+          do_copy=1
+        fi
+      fi
+      if [ $do_copy -eq 1 ]; then
+        cp $fc $dest_class
+        echo $dest_class >> $log_file
       fi
     done
   fi

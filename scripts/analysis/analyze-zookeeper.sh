@@ -117,6 +117,7 @@ if [ $instrument -eq 1 ]; then
     cp -r ${out_dir}/org ${zk_build_dir_main}/
   else
     # Otherwise, we need to check each file to see where it should belong
+    > ${out_dir}/copied_classes.txt
     copy_soot_out_class_files $out_dir $zk_build_dir_main
     copy_soot_out_class_files $out_dir $zk_build_dir_other
   fi
